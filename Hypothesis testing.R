@@ -38,9 +38,10 @@ t.test(Tb ~ Rabies, data = hosts)
 
 # 2
 
-hosts %>% ggplot(aes(y = Rabies, x = Tb)) + 
-  geom_point(alpha = 0.3) + geom_smooth(method = 'gam') + 
-  gghighlight(Species == "Didelphis virginiana", label_key = TYPE)
+hosts %>% ggplot(aes(y = Rabies, x = Tb))+ 
+  geom_smooth(method = 'gam') + 
+  geom_point() + 
+  gghighlight(Species == "Didelphis virginiana", label_key = TYPE) 
 
 
 
