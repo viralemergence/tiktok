@@ -40,7 +40,7 @@ t.test(Tb ~ Rabies, data = hosts)
 
 hosts %>% ggplot(aes(y = Rabies, x = Tb))+ 
   geom_smooth(method = 'gam') + 
-  geom_point() + 
+  geom_point() + theme_bw() + xlab('Body temperature') +
   gghighlight(Species == "Didelphis virginiana", label_key = TYPE) 
 
 
@@ -49,5 +49,6 @@ hosts %>% ggplot(aes(y = Rabies, x = Tb))+
 # 3
 
 hosts %>% ggplot(aes(y = log(Richness), x = Tb)) + 
-  geom_point(alpha = 0.3) + geom_smooth(method = 'gam')
+  geom_point(alpha = 0.3) + geom_smooth(method = 'gam') +
+  xlab('Body temperature') + theme_bw() + ylim(0,3.75)
 
