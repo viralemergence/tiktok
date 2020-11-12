@@ -1,5 +1,5 @@
 ## setwd
-setwd("~/Desktop/tiktok")
+setwd("~/Github/tiktok/Data")
 
 ## clean environment & plots
 rm(list=ls()) 
