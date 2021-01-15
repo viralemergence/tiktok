@@ -19,13 +19,15 @@ virus %>% left_join(temp) -> hosts
 
 hosts %>% na.omit() %>% 
   ggplot(aes(x = as.factor(conservative), y = Tb)) + geom_boxplot() + 
-  geom_jitter(width = 0.1, alpha = 0.5) + ylab("Body temperature") -> g1 #+ 
+  geom_jitter(width = 0.1, alpha = 0.5) + ylab("Body temperature")  + 
+  xlab("Conservative") -> g1 #+ 
   #gghighlight(Species == "Didelphis virginiana", label_key = TYPE)
 t.test(Tb ~ as.factor(conservative), data = hosts) 
 
 hosts %>% na.omit() %>% 
   ggplot(aes(x = as.factor(liberal), y = Tb)) + geom_boxplot() + 
-  geom_jitter(width = 0.1, alpha = 0.5) + ylab("Body temperature") -> g2 #+ 
+  geom_jitter(width = 0.1, alpha = 0.5) + ylab("Body temperature")+ 
+  xlab("Liberal")  -> g2 #+ 
 #gghighlight(Species == "Didelphis virginiana", label_key = TYPE)
 t.test(Tb ~ as.factor(liberal), data = hosts) 
 
@@ -38,12 +40,12 @@ g1 + g2
 
 hosts %>% ggplot(aes(y = liberal, x = Tb))+ 
   geom_smooth(method = 'gam') + 
-  geom_point() + theme_bw() + xlab('Body temperature') #+
+  geom_point() + theme_bw() + xlab('Body temperature')#+
  # gghighlight(Species == "Didelphis virginiana", label_key = TYPE) 
 
 hosts %>% ggplot(aes(y = conservative, x = Tb))+ 
   geom_smooth(method = 'gam') + 
-  geom_point() + theme_bw() + xlab('Body temperature') #+
+  geom_point() + theme_bw() + xlab('Body temperature')  #+
   #gghighlight(Species == "Didelphis virginiana", label_key = TYPE) 
 
 
@@ -61,13 +63,15 @@ virus %>% left_join(temp) -> hosts
 
 hosts %>% na.omit() %>% 
   ggplot(aes(x = as.factor(conservative), y = Tb)) + geom_boxplot() + 
-  geom_jitter(width = 0.1, alpha = 0.5) + ylab("Body temperature") -> g1 #+ 
+  geom_jitter(width = 0.1, alpha = 0.5) + ylab("Body temperature") +
+  xlab("Conservative") -> g1 #+ 
 #gghighlight(Species == "Didelphis virginiana", label_key = TYPE)
 t.test(Tb ~ as.factor(conservative), data = hosts) 
 
 hosts %>% na.omit() %>% 
   ggplot(aes(x = as.factor(liberal), y = Tb)) + geom_boxplot() + 
-  geom_jitter(width = 0.1, alpha = 0.5) + ylab("Body temperature") -> g2 #+ 
+  geom_jitter(width = 0.1, alpha = 0.5) + ylab("Body temperature") + 
+  xlab("Liberal") -> g2 #+ 
 #gghighlight(Species == "Didelphis virginiana", label_key = TYPE)
 t.test(Tb ~ as.factor(liberal), data = hosts) 
 
